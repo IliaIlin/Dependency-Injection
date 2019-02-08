@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="exactSearch" class="example.ExactMatchSearchService"/>
+    <bean id="likeSearch" class="example.LikeMatchSearchService"/>
+
+    <bean id="nameOfTheTextBook" class="java.lang.String">
+        <constructor-arg value="Philosophy for dummies"/>
+    </bean>
+
+    <bean id="student" class="example.LazyStudent">
+        <constructor-arg type="example.SearchService" ref="exactSearch"/>
+        <constructor-arg type="java.lang.String" ref="nameOfTheTextBook"/>
+    </bean>
+
+</beans>
